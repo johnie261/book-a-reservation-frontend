@@ -4,45 +4,42 @@ import { toast } from 'react-toastify';
 import { clearValues, createGlamping, handleChange } from '../Features/gampling/gamplingSlice';
 
 const AddItem = () => {
-
   const {
     isLoading,
     name,
     location,
-    glamping_type,
+    glamping_type: glampingType,
     description,
     image,
-    daily_rate,
+    daily_rate: dailyRate,
   } = useSelector((store) => store.glamping);
   const dispatch = useDispatch();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     dispatch(handleChange({ name, value }));
   };
 
   const handleSubmitForm = (e) => {
-    e.preventDefault()
-    console.log("submit form")
-    if (!name || !location || !glamping_type || !description ||!image || !daily_rate) {
-      toast.error('Please fill out all fields')
-      return
+    e.preventDefault();
+    if (!name || !location || !glampingType || !description || !image || !dailyRate) {
+      toast.error('Please fill out all fields');
+      return;
     }
     dispatch(
       createGlamping({
         glamping: {
           name,
           location,
-          glamping_type,
+          glamping_type: glampingType,
           description,
           image,
-          daily_rate
-        }
-      })
-    )
+          daily_rate: dailyRate,
+        },
+      }),
+    );
     dispatch(clearValues());
-  }
+  };
 
   return (
     <div className="form-container">
@@ -79,7 +76,7 @@ const AddItem = () => {
             id="glamping_type"
             name="glamping_type"
             type="text"
-            value={glamping_type}
+            value={glampingType}
             onChange={handleInput}
             className="form-input"
             placeholder="Enter type of glamping"
@@ -114,19 +111,19 @@ const AddItem = () => {
             id="daily_rate"
             name="daily_rate"
             type="number"
-            value={daily_rate}
+            value={dailyRate}
             onChange={handleInput}
             className="form-input"
             placeholder="Add rate"
           />
         </label>
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="button"
           onClick={handleSubmitForm}
         >
-          {isLoading ? "Loading.." : "Add Glamping"}
-        </button> 
+          {isLoading ? 'Loading..' : 'Add Glamping'}
+        </button>
       </form>
     </div>
   );

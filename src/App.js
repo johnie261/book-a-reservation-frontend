@@ -23,7 +23,7 @@ function App() {
           <Route path="/delete-item" element={<DeleteItem />} />
         </Route>
       </Routes>
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
     </BrowserRouter>
   );
 }
