@@ -6,16 +6,17 @@ const initialState = {
   isLoading: false,
   name: '',
   location: '',
-  glampingType: '',
+  glamping_type: '',
   description: '',
-  dailyRate: '',
+  image: '',
+  daily_rate: 0.00,
 };
 
  export const createGlamping = createAsyncThunk(
   'glamping/createGlampling',
   async(glamping) => {
     try {
-      const res = await axios.post('/api/glamping', glamping)
+      const res = await axios.post('http://127.0.0.1:3000/glampings/create', glamping)
       return res.data
     } catch (error) {
       throw new Error(error.message)
