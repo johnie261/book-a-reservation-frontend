@@ -127,7 +127,6 @@ code {
 .item-form {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   width: 100%;
   min-height: 100vh;
@@ -143,28 +142,11 @@ code {
   width: 30%;
 }
 
-.label-file {
-  width: 100%;
-} 
-
-.file-container {
- width: 30%;
-}
-
 .form-input {
   padding: 1rem;
   border-radius: .5rem;
   font-size: 1rem;
   border: 1px solid #fff;
-}
-
-.bttn {
-  padding: .7rem;
-  border-radius: .5rem;
-  border: 1px solid #fff;
-  font-size: 1rem;
-  color: #9acd32;
-  width: 40%;
 }
 
 .button {
@@ -178,7 +160,6 @@ code {
   margin-top: 2rem;
 }
 
-.button:hover,
-.bttn:hover {
+.button:hover {
   letter-spacing: .1rem;
 }
