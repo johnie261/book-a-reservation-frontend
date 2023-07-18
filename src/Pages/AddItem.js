@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearValues, createGlamping, handleChange } from '../Features/gampling/gamplingSlice';
-import FileUpload from '../Components/FileUpload';
 import { toast } from 'react-toastify';
-import { addUploadedFile } from '../Features/file/FileSlice';
+import { clearValues, createGlamping, handleChange } from '../Features/gampling/gamplingSlice';
 
 const AddItem = () => {
-  const [images, setImages] = useState([])
 
   const {
     isLoading,
     name,
     location,
-    glampingType,
+    glamping_type,
     description,
-    dailyRate,
+    image,
+    daily_rate,
   } = useSelector((store) => store.glamping);
   const dispatch = useDispatch();
 
@@ -27,28 +25,30 @@ const AddItem = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     console.log("submit form")
-    if (!name || !location || !glampingType || !description || !dailyRate) {
+    if (!name || !location || !glamping_type || !description ||!image || !daily_rate) {
       toast.error('Please fill out all fields')
       return
     }
-    dispatch(createGlamping({
-      name,
-      location,
-      glampingType,
-      description,
-      dailyRate
-    }))
-    if(images.length > 0) {
-      dispatch(addUploadedFile(images))
-      // setImages([])
-    }
+    dispatch(
+      createGlamping({
+        glamping: {
+          name,
+          location,
+          glamping_type,
+          description,
+          image,
+          daily_rate
+        }
+      })
+    )
+    dispatch(clearValues());
   }
 
   return (
     <div className="form-container">
       <h2 className="form-name">ADD A NEW GLAMPING</h2>
       <div className="underline" />
-      <form className="item-form" >
+      <form className="item-form">
         <label htmlFor="name" className="label">
           Name:
           <input
@@ -73,13 +73,13 @@ const AddItem = () => {
             placeholder="Enter location"
           />
         </label>
-        <label htmlFor="glampingType" className="label">
+        <label htmlFor="glamping_type" className="label">
           Glamping Type:
           <input
-            id="glampingType"
-            name="glampingType"
+            id="glamping_type"
+            name="glamping_type"
             type="text"
-            value={glampingType}
+            value={glamping_type}
             onChange={handleInput}
             className="form-input"
             placeholder="Enter type of glamping"
@@ -96,27 +96,25 @@ const AddItem = () => {
             placeholder="Add description"
           />
         </label>
-        < FileUpload setImages={setImages}/>
-        {/* <label htmlFor="image" className="label">
+        <label htmlFor="image" className="label">
           Image link:
           <input
-            id="url"
-            name="url"
-            value={url}
-            onChange={e => setUrl(e.target.value)}
+            id="image"
+            name="image"
+            value={image}
+            onChange={handleInput}
             type="text"
             className="form-input"
             placeholder="Add a link to an image"
           />
-          <button className='bttn'>Add&nbsp;photo</button>
-        </label> */}
-        <label htmlFor="dailyRate" className="label">
+        </label>
+        <label htmlFor="daily_rate" className="label">
           Daily Rate:
           <input
-            id="dailyRate"
-            name="dailyRate"
-            type="text"
-            value={dailyRate}
+            id="daily_rate"
+            name="daily_rate"
+            type="number"
+            value={daily_rate}
             onChange={handleInput}
             className="form-input"
             placeholder="Add rate"
@@ -126,7 +124,6 @@ const AddItem = () => {
           type="button" 
           className="button"
           onClick={handleSubmitForm}
-          // onClick={()=> dispatch(clearValues)}
         >
           {isLoading ? "Loading.." : "Add Glamping"}
         </button> 
