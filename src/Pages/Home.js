@@ -1,67 +1,34 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchGlampings } from '../store/actions/glampingActions';
 
-const GlampingList = ({
-  glampings,
-  loading,
-  error,
-  fetchGlampings,
-}) => {
+const Home = () => {
+  const dispatch = useDispatch();
+  const glampingsList = useSelector((state) => state.glampings.glampingsList);
+
   useEffect(() => {
-    fetchGlampings();
-  }, [fetchGlampings]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return (
-      <div>
-        Error:
-        {error}
-      </div>
-    );
-  }
+    dispatch(fetchGlampings());
+  }, [dispatch]);
 
   return (
-    <div>
-      <h2>Glamping List</h2>
-      <ul>
-        {glampings.map((glamping) => (
-          <li key={glamping.id}>{glamping.name}</li>
+    <div className="glamping-list">
+      <h1>Glampings</h1>
+      <h4>Please select a glamping.</h4>
+      <div className="glamping-carousel">
+        {glampingsList.map((glamping) => (
+          <div className="glamping-item" key={glamping[0]}>
+            <Link to={`/glamping/${glamping[0]}`}>
+              {' '}
+              <img src={glamping[3]} alt={glamping[1]} className="glamping-image" />
+            </Link>
+            <p className="glamping-name">{glamping[1]}</p>
+            <p className="glamping-type">{glamping[2]}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  glampings: state.glamping.glampings,
-  loading: state.glamping.loading,
-  error: state.glamping.error,
-});
-
-const mapDispatchToProps = {
-  fetchGlampings,
-};
-
-GlampingList.propTypes = {
-  glampings: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      glampingType: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
-  fetchGlampings: PropTypes.func.isRequired,
-};
-
-GlampingList.defaultProps = {
-  error: null,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GlampingList);
+export default Home;
