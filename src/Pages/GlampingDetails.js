@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchGlampingDetails } from '../store/actions/glampingActions';
+import '../assets/GlampingDetails.css';
 
 const GlampingDetails = () => {
   const { id } = useParams();
