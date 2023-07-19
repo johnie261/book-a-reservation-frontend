@@ -162,45 +162,6 @@ code {
   letter-spacing: 0.1rem;
 }
 
-.glamping-list {
-  text-align: center;
-}
-
-.glamping-list h4 {
-  text-align: center;
-  color: #888;
-}
-
-.glamping-carousel {
-  display: flex;
-  overflow-x: auto;
-  margin: 10px 0;
-  gap: 20px;
-  align-items: center;
-}
-
-.glamping-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.glamping-image {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.glamping-name {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.glamping-type {
-  color: #888;
-}
-
 .glamping-details {
   display: flex;
   gap: 20px;
