@@ -1,38 +1,22 @@
-import {
-  FETCH_GLAMPINGS_REQUEST,
-  FETCH_GLAMPINGS_SUCCESS,
-  FETCH_GLAMPINGS_FAILURE,
-} from '../actions/glampingActions';
-
 const initialState = {
-  glampings: [],
-  loading: false,
+  glampingsList: [],
+  glampingDetails: null,
   error: null,
 };
 
-const glampingReducer = (state = initialState, action) => {
+const glampingsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_GLAMPINGS_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    case FETCH_GLAMPINGS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        glampings: action.payload,
-      };
-    case FETCH_GLAMPINGS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
+    case 'FETCH_GLAMPINGS_SUCCESS':
+      return { ...state, glampingsList: action.payload, error: null };
+    case 'FETCH_GLAMPINGS_FAILURE':
+      return { ...state, glampingsList: [], error: action.payload };
+    case 'FETCH_GLAMPING_DETAILS_SUCCESS':
+      return { ...state, glampingDetails: action.payload, error: null };
+    case 'FETCH_GLAMPING_DETAILS_FAILURE':
+      return { ...state, glampingDetails: null, error: action.payload };
     default:
       return state;
   }
 };
 
-export default glampingReducer;
+export default glampingsReducer;

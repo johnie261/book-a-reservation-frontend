@@ -1,0 +1,53 @@
+.glamping-details {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.glamping-image-container {
+  flex: 1;
+}
+
+.glamping-image-details {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.glamping-details-container {
+  flex: 1;
+}
+
+.glamping-name-details {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.glamping-details-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glamping-details-table th,
+.glamping-details-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.glamping-details-table th {
+  background-color: #9acd32;
+  text-align: left;
+}
+
+.glamping-details-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

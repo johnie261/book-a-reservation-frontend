@@ -1,0 +1,101 @@
+.glamping-list {
+  text-align: center;
+  margin-top: 130px;
+}
+
+.glamping-list h4 {
+  text-align: center;
+  color: #888;
+}
+
+.glamping-carousel {
+  display: flex;
+  overflow: hidden;
+  margin: 10px 0;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.glamping-item {
+  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.glamping-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.glamping-name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.glamping-type {
+  color: #888;
+}
+
+.carousel-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.carousel-navigation button {
+  background-color: #9acd32;
+  color: #fff;
+  border: none;
+  font-size: 35px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: background-color 0.3s;
+  position: relative;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  bottom: 280px;
+}
+
+.carousel-navigation .arrow-left::before,
+.carousel-navigation .arrow-right::before {
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.carousel-navigation .arrow-left::before {
+  transform: rotate(45deg);
+  top: 50%;
+  left: 3px;
+}
+
+.carousel-navigation .arrow-right::before {
+  transform: rotate(-45deg);
+  top: 50%;
+  right: 3px;
+}
+
+.carousel-navigation button:hover {
+  background-color: #fff;
+  color: #9acd32;
+}
+
+.carousel-navigation .arrow-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}

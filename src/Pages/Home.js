@@ -1,67 +1,55 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchGlampings } from '../store/actions/glampingActions';
+import '../assets/Home.css';
 
-const GlampingList = ({
-  glampings,
-  loading,
-  error,
-  fetchGlampings,
-}) => {
+const Home = () => {
+  const dispatch = useDispatch();
+  const glampingsList = useSelector((state) => state.glampings.glampingsList);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
-    fetchGlampings();
-  }, [fetchGlampings]);
+    dispatch(fetchGlampings());
+  }, [dispatch]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : glampingsList.length - 3));
+  };
 
-  if (error) {
-    return (
-      <div>
-        Error:
-        {error}
-      </div>
-    );
-  }
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex < glampingsList.length - 3 ? prevIndex + 1 : 0));
+  };
+
+  const visibleGlampings = glampingsList.slice(currentIndex, currentIndex + 3);
 
   return (
-    <div>
-      <h2>Glamping List</h2>
-      <ul>
-        {glampings.map((glamping) => (
-          <li key={glamping.id}>{glamping.name}</li>
+    <div className="glamping-list">
+      <h1>Glampings</h1>
+      <h4>Please select a glamping.</h4>
+      <div className="glamping-carousel">
+        {visibleGlampings.map((glamping) => (
+          <div className="glamping-item" key={glamping[0]}>
+            <Link to={`/glamping/${glamping[0]}`}>
+              {' '}
+              <img src={glamping[3]} alt={glamping[1]} className="glamping-image" />
+            </Link>
+            <p className="glamping-name">{glamping[1]}</p>
+            <p className="glamping-type">{glamping[2]}</p>
+          </div>
         ))}
-      </ul>
+      </div>
+      <div className="carousel-navigation">
+        <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
+          &#8249;
+        </button>
+        <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
+          &#8250;
+        </button>
+      </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  glampings: state.glamping.glampings,
-  loading: state.glamping.loading,
-  error: state.glamping.error,
-});
-
-const mapDispatchToProps = {
-  fetchGlampings,
-};
-
-GlampingList.propTypes = {
-  glampings: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      glampingType: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
-  fetchGlampings: PropTypes.func.isRequired,
-};
-
-GlampingList.defaultProps = {
-  error: null,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GlampingList);
+export default Home;
