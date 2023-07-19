@@ -10,6 +10,7 @@ import Layout from './Pages/Layout';
 import Reserve from './Pages/Reserve';
 import AddItem from './Pages/AddItem';
 import DeleteItem from './Pages/DeleteItem';
+import GlampingDetails from './Pages/GlampingDetails';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/delete-item" element={<DeleteItem />} />
+          <Route path="/glamping/:id" element={<GlampingDetails />} />
         </Route>
       </Routes>
       <ToastContainer position="top-center" />
