@@ -32,10 +32,9 @@ code {
 }
 
 .outlet {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .sidebar {
@@ -44,6 +43,7 @@ code {
   padding: 2rem;
   transition: var(--transition);
   border: 0.1px solid #d3d3d3;
+  overflow-y: hidden;
 }
 
 .open-sidebar {
@@ -60,6 +60,11 @@ code {
   background-color: white;
   border: none;
   font-size: 2rem;
+}
+
+.sidebar-icon.close {
+  background-color: #9acd32;
+  color: #fff;
 }
 
 .logo {
@@ -98,4 +103,61 @@ code {
 .social-icon {
   display: flex;
   gap: 0.5rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #9acd32;
+  color: #fff;
+}
+
+.underline {
+  height: 0.1rem;
+  width: 50%;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 30%;
+}
+
+.form-input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #fff;
+}
+
+.button {
+  border: 1px solid #fff;
+  padding: 1rem;
+  width: 14%;
+  background-color: #fff;
+  color: #9acd32;
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+}
+
+.button:hover {
+  letter-spacing: 0.1rem;
 }
