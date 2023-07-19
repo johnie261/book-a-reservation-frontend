@@ -12,7 +12,7 @@ const AddItem = () => {
     description,
     image,
     daily_rate: dailyRate,
-  } = useSelector((store) => store.glamping);
+  } = useSelector((store) => store.glampingForm);
   const dispatch = useDispatch();
 
   const handleInput = (e) => {

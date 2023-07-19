@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import { ToastContainer } from 'react-toastify';
@@ -13,7 +13,7 @@ import DeleteItem from './Pages/DeleteItem';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
         </Route>
       </Routes>
       <ToastContainer position="top-center" />
-    </BrowserRouter>
+    </> 
   );
 }
 
