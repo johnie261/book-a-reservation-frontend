@@ -8,13 +8,15 @@ const GlampingDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const glampingDetails = useSelector((state) => state.glampings.glampingDetails);
+  //console.log(glampingDetails)
 
   useEffect(() => {
     dispatch(fetchGlampingDetails(id));
   }, [dispatch, id]);
 
   if (!glampingDetails) {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return <div className="spinner"></div>;
   }
 
   return (
