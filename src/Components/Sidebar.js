@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Navlinks from './Navlinks';
 import social from '../Utils/social';
 import Logo from '../Utils/glamping.png';
+import { logout } from '../store/actions/userActions';
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const username = useSelector((state) => state.user.username);
+  const dispatch = useDispatch();
 
   const handleSidebarOpen = () => {
     setSidebarOpen(true);
@@ -13,6 +17,10 @@ const Sidebar = () => {
 
   const handleSidebarClose = () => {
     setSidebarOpen(false);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -39,6 +47,13 @@ const Sidebar = () => {
             <Navlinks />
 
             <div className="sidebar-footer">
+              <div className="logout">
+                {username !== 'guest' && (
+                  <button type="button" onClick={handleLogout}>
+                    Logout
+                  </button>
+                )}
+              </div>
               <div className="social-icon">
                 {social.map((socialIcon) => {
                   const { id, icon } = socialIcon;
