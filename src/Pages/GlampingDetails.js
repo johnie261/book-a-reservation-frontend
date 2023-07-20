@@ -14,7 +14,7 @@ const GlampingDetails = () => {
   }, [dispatch, id]);
 
   if (!glampingDetails) {
-    return <div className="spinner"></div>;
+    return <div className="spinner" />;
   }
 
   return (

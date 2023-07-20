@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Navlinks from './Navlinks';
 import social from '../Utils/social';
-import Logo from '../Utils/glamping.png'
+import Logo from '../Utils/glamping.png';
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -31,8 +31,8 @@ const Sidebar = () => {
             <div className="logo">
               <img
                 src={Logo}
-                alt="Logo image"
-                className='logo-img'
+                alt="Logo"
+                className="logo-img"
               />
             </div>
 

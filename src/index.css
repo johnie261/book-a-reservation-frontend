@@ -87,6 +87,7 @@ code {
 
 .logo {
   margin-top: 3.3rem;
+  height: 10rem;
 }
 
 .nav-link {
@@ -112,10 +113,6 @@ code {
   width: 235px;
   padding-left: 1rem;
   color: #5a5a5a;
-}
-
-.logo {
-  height: 10rem;
 }
 
 .logo-img {
@@ -211,7 +208,7 @@ code {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   margin-bottom: 3rem;
 }
 
@@ -223,7 +220,7 @@ code {
   width: 100%;
   height: 175px;
   object-fit: cover;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .pagination {

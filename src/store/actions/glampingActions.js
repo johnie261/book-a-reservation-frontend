@@ -20,9 +20,9 @@ export const fetchGlampingDetails = (id) => async (dispatch) => {
 
 export const deleteGlamping = (id) => async (dispatch) => {
   try {
-    const req = await axios.delete(`http://127.0.0.1:3000/glampings/destroy_glamping/${id}`);
-    dispatch({type: 'DELETE_GLAMPING', payload: id})
+    await axios.delete(`http://127.0.0.1:3000/glampings/destroy_glamping/${id}`);
+    dispatch({ type: 'DELETE_GLAMPING', payload: id });
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
-}
+};
