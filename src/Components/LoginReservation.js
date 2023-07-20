@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login, logout } from '../store/actions/userActions';
 
-const LoginReservation = () => {
+const LoginPage = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const LoginReservation = () => {
 
   return (
     <div>
-      <p>Please log in to view your reservations.</p>
+      <p>You need to login first.</p>
       <input
         type="text"
         value={username}
@@ -38,4 +38,4 @@ const LoginReservation = () => {
   );
 };
 
-export default LoginReservation;
+export default LoginPage;

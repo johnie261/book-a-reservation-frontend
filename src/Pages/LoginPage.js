@@ -13,7 +13,6 @@ const LoginPage = () => {
     if (username.trim() !== '') {
       await dispatch(login(username));
       setUsername('');
-      navigate('/');
     }
   };
 
@@ -26,7 +25,7 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Welcome to Our App!</h1>
-      <p>Please log in to view your reservations.</p>
+      <p>Please log in to reserve and view your reservations.</p>
       <input
         type="text"
         value={username}

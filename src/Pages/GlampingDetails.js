@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchGlampingDetails } from '../store/actions/glampingActions';
 import '../assets/GlampingDetails.css';
@@ -8,6 +8,7 @@ const GlampingDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const glampingDetails = useSelector((state) => state.glampings.glampingDetails);
+  const username = useSelector((state) => state.user.username);
 
   useEffect(() => {
     dispatch(fetchGlampingDetails(id));
@@ -16,6 +17,8 @@ const GlampingDetails = () => {
   if (!glampingDetails) {
     return <div className="spinner" />;
   }
+
+  console.log('glampingDetails:', glampingDetails);
 
   return (
     <div className="glamping-details">
@@ -52,6 +55,16 @@ const GlampingDetails = () => {
             </tr>
           </tbody>
         </table>
+        {username !== 'guest' && (
+          <Link
+            to={{
+              pathname: '/reserve',
+              state: { glampingDetails },
+            }}
+          >
+            <button type="button">Reserve</button>
+          </Link>
+        )}
       </div>
     </div>
   );
