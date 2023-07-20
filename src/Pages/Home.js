@@ -6,7 +6,6 @@ import '../assets/Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
-  // const glampingsList = useSelector((state) => state.glampings.glampingsList);
   const {isLoading, glampingsList} = useSelector((state) => state.glampings)
   console.log(glampingsList)
   console.log(isLoading)

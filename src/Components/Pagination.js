@@ -13,9 +13,7 @@ const Pagination = () => {
     const { isLoading, glampingsList } = useSelector((store) => store.glampings)
     
     const dispatch = useDispatch()
-    //const {id} =useParams()
     console.log(glampingsList)
-    //console.log(id)
 
     useEffect(() => {
       dispatch(fetchGlampings())
