@@ -41,7 +41,7 @@ const glampingSlice = createSlice({
         isLoading: true,
       }))
       .addCase(createGlamping.fulfilled, (state) => {
-        toast.success('Job created');
+        toast.success('Glamping created successfully');
         return {
           ...state,
           isLoading: false,
