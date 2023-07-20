@@ -13,8 +13,11 @@ const Pagination = () => {
 
   useEffect(() => {
     dispatch(fetchGlampings());
+  }, [dispatch]);
+
+  useEffect(() => {
     setRenderedList(glampingsList);
-  }, [dispatch, glampingsList]);
+  }, [glampingsList]);
 
   const handleDelete = (id) => {
     try {
@@ -67,16 +70,15 @@ const Pagination = () => {
         ))}
       </div>
       {renderedList.length > 0 && (
-      <ReactPaginate
-        previousLabel="<"
-        nextLabel=">"
-        pageCount={totalPages}
-        onPageChange={handlePageChange}
-        containerClassName="pagination"
-        activeClassName="active"
-      />
+        <ReactPaginate
+          previousLabel="<"
+          nextLabel=">"
+          pageCount={totalPages}
+          onPageChange={handlePageChange}
+          containerClassName="pagination"
+          activeClassName="active"
+        />
       )}
-
     </>
   );
 };
