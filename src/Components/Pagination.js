@@ -19,11 +19,14 @@ const Pagination = () => {
     setRenderedList(glampingsList);
   }, [glampingsList]);
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     try {
-      dispatch(deleteGlamping(id));
+      await dispatch(deleteGlamping(id));
       toast.success('Item was deleted successfully');
+
       setRenderedList((prevList) => prevList.filter((item) => item[0] !== id));
+
+      dispatch(fetchGlampings());
     } catch (error) {
       throw new Error(error.message);
     }
