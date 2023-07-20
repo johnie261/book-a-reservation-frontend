@@ -1,7 +1,8 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
 import Home from './Pages/Home';
 import Reservations from './Pages/Reservations';
 import Layout from './Pages/Layout';
@@ -9,12 +10,18 @@ import Reserve from './Pages/Reserve';
 import AddItem from './Pages/AddItem';
 import DeleteItem from './Pages/DeleteItem';
 import GlampingDetails from './Pages/GlampingDetails';
+import LoginPage from './Pages/LoginPage';
 
 function App() {
+  const username = useSelector((state) => state.user.username);
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={username ? <Layout /> : <LoginPage />}
+        >
           <Route index element={<Home />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/reservations" element={<Reservations />} />
