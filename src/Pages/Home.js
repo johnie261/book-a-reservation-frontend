@@ -6,13 +6,16 @@ import '../assets/Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const glampingsList = useSelector((state) => state.glampings.glampingsList);
-
+  const { isLoading, glampingsList } = useSelector((state) => state.glampings);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     dispatch(fetchGlampings());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <div className="spinner" />;
+  }
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : glampingsList.length - 3));

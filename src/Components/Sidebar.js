@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Navlinks from './Navlinks';
 import social from '../Utils/social';
+import Logo from '../Utils/glamping.png';
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -28,7 +29,11 @@ const Sidebar = () => {
             </button>
 
             <div className="logo">
-              <h1>Logo</h1>
+              <img
+                src={Logo}
+                alt="Logo"
+                className="logo-img"
+              />
             </div>
 
             <Navlinks />
