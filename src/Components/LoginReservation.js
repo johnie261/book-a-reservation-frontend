@@ -23,17 +23,22 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <p>You need to login first.</p>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Enter your username"
-      />
-      <button type="button" onClick={handleLogin}>Log In</button>
-      <button type="button" onClick={handleGuestLogin}>Continue as Guest</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="login-container">
+      <div className="login-box">
+        <p>You need to login first.</p>
+        <div className="login-input">
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter your username"
+            className="input-field"
+          />
+          <button type="button" onClick={handleLogin} className="login-btn">Log In</button>
+          <button type="button" onClick={handleGuestLogin} className="login-btn">Continue as Guest</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </div>
+      </div>
     </div>
   );
 };

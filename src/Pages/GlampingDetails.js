@@ -18,8 +18,6 @@ const GlampingDetails = () => {
     return <div className="spinner" />;
   }
 
-  console.log('glampingDetails:', glampingDetails);
-
   return (
     <div className="glamping-details">
       <div className="glamping-image-container">
