@@ -6,6 +6,7 @@
 .glamping-list h4 {
   text-align: center;
   color: #888;
+  margin-bottom: 75px
 }
 
 .glamping-carousel {
@@ -98,4 +99,11 @@
   border-bottom-right-radius: 0;
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .glamping-list {
+    margin-top: 75px;
+    margin-bottom: 50px;
+  }
 }

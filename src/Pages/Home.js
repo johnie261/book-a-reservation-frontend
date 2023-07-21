@@ -8,6 +8,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const { isLoading, glampingsList } = useSelector((state) => state.glampings);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
+  const isMobileView = window.innerWidth <= 768;
 
   useEffect(() => {
     dispatch(fetchGlampings());
@@ -25,15 +29,50 @@ const Home = () => {
     setCurrentIndex((prevIndex) => (prevIndex < glampingsList.length - 3 ? prevIndex + 1 : 0));
   };
 
-  const visibleGlampings = glampingsList.slice(currentIndex, currentIndex + 3);
+  const handlePrevMobile = () => {
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : glampingsList.length - 1));
+  };
 
-  const showNavigationButtons = visibleGlampings.length >= 3;
+  const handleNextMobile = () => {
+    setCurrentIndex((prevIndex) => (prevIndex < glampingsList.length - 1 ? prevIndex + 1 : 0));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX !== null && touchEndX !== null) {
+      const touchDelta = touchEndX - touchStartX;
+      if (touchDelta > 0) {
+        handlePrevMobile();
+      } else if (touchDelta < 0) {
+        handleNextMobile();
+      }
+      setTouchStartX(null);
+      setTouchEndX(null);
+    }
+  };
+
+  const visibleGlampings = isMobileView ? glampingsList.slice(currentIndex, currentIndex + 1)
+    : glampingsList.slice(currentIndex, currentIndex + 3);
+
+  const showNavigationButtons = !isMobileView || visibleGlampings.length >= 3;
 
   return (
     <div className="glamping-list">
       <h1>Glampings</h1>
       <h4>Please select a glamping.</h4>
-      <div className="glamping-carousel">
+      <div
+        className="glamping-carousel"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {visibleGlampings.map((glamping) => (
           <div className="glamping-item" key={glamping[0]}>
             <Link to={`/glamping/${glamping[0]}`}>
@@ -44,7 +83,7 @@ const Home = () => {
                 className="glamping-image"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://via.placeholder.com/300'; // Establece una imagen de marcador de posición si la imagen no se carga correctamente
+                  e.target.src = 'https://via.placeholder.com/300';
                 }}
               />
             </Link>
@@ -55,12 +94,16 @@ const Home = () => {
       </div>
       {showNavigationButtons && (
         <div className="carousel-navigation">
-          <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
-            &#8249;
-          </button>
-          <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
-            &#8250;
-          </button>
+          {!isMobileView && (
+            <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
+              &#8249;
+            </button>
+          )}
+          {!isMobileView && (
+            <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
+              &#8250;
+            </button>
+          )}
         </div>
       )}
     </div>
