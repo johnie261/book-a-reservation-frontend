@@ -74,6 +74,7 @@
     padding: 20px;
     margin-top: 25px;
   }
+
   .glamping-details-container {
     margin: 0;
   }
@@ -81,7 +82,6 @@
   .glamping-name-details {
     display: none;
   }
-
 
   .glamping-details-table {
     width: 100%;

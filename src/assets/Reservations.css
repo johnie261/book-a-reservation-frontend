@@ -19,7 +19,6 @@
   display: flex;
 }
 
-
 .reservation-table {
   width: 100%;
   margin-top: 20px;
@@ -69,5 +68,5 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-  }  
+  }
 }
