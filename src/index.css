@@ -179,7 +179,7 @@ code {
 .button {
   border: 1px solid #fff;
   padding: 1rem;
-  width: 14%;
+  width: 17%;
   background-color: #fff;
   color: #9acd32;
   font-size: 1.1rem;
@@ -325,6 +325,18 @@ code {
   .pagination {
     display: none;
   }
+
+  .form-name {
+    font-size: 1.2rem;
+  }
+
+  .label {
+    width: 50%;
+  }
+
+  .button {
+    width: 26.5%;
+  }
 }
 
 @media(max-width: 768px) {
@@ -333,5 +345,17 @@ code {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  .label {
+    width: 60%;
+  }
 }
 
+@media(max-width: 500px) {
+  .label {
+    width: 70%;
+  }
+
+  .button {
+    width: 35%;
+  }
+}
