@@ -75,14 +75,14 @@ code {
 .sidebar-icon {
   position: absolute;
   left: 1%;
-  background-color: white;
+  background-color: transparent;
   border: none;
   font-size: 2rem;
+  z-index: 1;
 }
 
 .sidebar-icon.close {
-  background-color: #9acd32;
-  color: #fff;
+  color: #111;
 }
 
 .logo {
