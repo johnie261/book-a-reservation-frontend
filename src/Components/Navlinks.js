@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import links from '../Utils/links';
 
-const Navlinks = () => (
+const Navlinks = ({onClick}) => (
   <div className="nav-links">
     {links.map((link) => {
       const { id, text, path } = link;
@@ -9,6 +9,7 @@ const Navlinks = () => (
         <NavLink
           to={path}
           key={id}
+          onClick={onClick}
           className="nav-link"
         >
           <h4>{text}</h4>
