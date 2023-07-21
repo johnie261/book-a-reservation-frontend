@@ -58,3 +58,17 @@
   background-color: #fff;
   color: #9acd32;
 }
+
+.login-details {
+  text-align: center;
+}
+
+@media(max-width: 500px) {
+  .login-name {
+    font-size: 1.5rem;
+  }
+
+  .underline-login {
+    width: 70%;
+  }
+}

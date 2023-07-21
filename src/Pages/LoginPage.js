@@ -30,9 +30,9 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1>Welcome to Our App!</h1>
+        <h1 className='login-name'>Welcome to Our App!</h1>
         <div className="underline underline-login" />
-        <p>Please log in to reserve and view your reservations.</p>
+        <p className='login-details'>Please log in to reserve and view your reservations.</p>
         <div className="login-input">
           <input
             type="text"
