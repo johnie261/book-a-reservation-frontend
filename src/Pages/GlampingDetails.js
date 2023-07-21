@@ -62,7 +62,7 @@ const GlampingDetails = () => {
               state: { glampingDetails },
             }}
           >
-            <button type="button">Reserve</button>
+            <button type="button" className="reserve-button">Reserve</button>
           </Link>
         )}
       </div>
