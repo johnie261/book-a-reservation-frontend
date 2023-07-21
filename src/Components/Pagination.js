@@ -13,14 +13,20 @@ const Pagination = () => {
 
   useEffect(() => {
     dispatch(fetchGlampings());
-    setRenderedList(glampingsList);
-  }, [dispatch, glampingsList]);
+  }, [dispatch]);
 
-  const handleDelete = (id) => {
+  useEffect(() => {
+    setRenderedList(glampingsList);
+  }, [glampingsList]);
+
+  const handleDelete = async (id) => {
     try {
-      dispatch(deleteGlamping(id));
+      await dispatch(deleteGlamping(id));
       toast.success('Item was deleted successfully');
+
       setRenderedList((prevList) => prevList.filter((item) => item[0] !== id));
+
+      dispatch(fetchGlampings());
     } catch (error) {
       throw new Error(error.message);
     }
@@ -67,16 +73,15 @@ const Pagination = () => {
         ))}
       </div>
       {renderedList.length > 0 && (
-      <ReactPaginate
-        previousLabel="<"
-        nextLabel=">"
-        pageCount={totalPages}
-        onPageChange={handlePageChange}
-        containerClassName="pagination"
-        activeClassName="active"
-      />
+        <ReactPaginate
+          previousLabel="<"
+          nextLabel=">"
+          pageCount={totalPages}
+          onPageChange={handlePageChange}
+          containerClassName="pagination"
+          activeClassName="active"
+        />
       )}
-
     </>
   );
 };

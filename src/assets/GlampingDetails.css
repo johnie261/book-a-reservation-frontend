@@ -2,9 +2,8 @@
   display: flex;
   gap: 20px;
   padding: 40px;
-  align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .glamping-image-container {
@@ -20,6 +19,7 @@
 
 .glamping-details-container {
   flex: 1;
+  margin-top: 20px;
 }
 
 .glamping-name-details {
@@ -28,7 +28,7 @@
 }
 
 .glamping-details-table {
-  width: 100%;
+  width: 80%;
   margin-top: 20px;
   border-collapse: collapse;
   background-color: #fff;
@@ -50,4 +50,20 @@
 
 .glamping-details-table tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.reserve-button {
+  border: 1px solid #fff;
+  padding: 1rem;
+  width: 14%;
+  background-color: #9acd32;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.reserve-button:hover {
+  letter-spacing: 0.1rem;
 }
