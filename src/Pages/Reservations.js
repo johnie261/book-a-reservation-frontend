@@ -46,9 +46,12 @@ const Reservations = () => {
             {reservation[1]}
             , Service Fee: $
             {reservation[2]}
-            , Glamping ID:
+            , Glamping Name:
             {' '}
-            {reservation[4]}
+            {reservation.glampingName}
+            , Glamping City:
+            {' '}
+            {reservation.glampingCity}
           </li>
         ))}
       </ul>
