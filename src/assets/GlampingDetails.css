@@ -54,14 +54,14 @@
 
 .reserve-button {
   border: 1px solid #fff;
-    padding: 1rem;
-    width: 14%;
-    background-color: #9acd32;
-    color: #fff;
-    font-size: 1.1rem;
-    border-radius: 0.6rem;
-    margin-top: 2rem;
-    cursor: pointer
+  padding: 1rem;
+  width: 14%;
+  background-color: #9acd32;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 
 .reserve-button:hover {
