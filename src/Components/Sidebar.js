@@ -21,6 +21,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    window.location.reload();
   };
 
   return (
@@ -45,15 +46,13 @@ const Sidebar = () => {
             </div>
 
             <Navlinks />
+            {username !== 'guest' && (
+              <button type="button" onClick={handleLogout} className="logout-button">
+                Logout
+              </button>
+            )}
 
             <div className="sidebar-footer">
-              <div className="logout">
-                {username !== 'guest' && (
-                  <button type="button" onClick={handleLogout} className="logout-button">
-                    Logout
-                  </button>
-                )}
-              </div>
               <div className="social-icon">
                 {social.map((socialIcon) => {
                   const { id, icon } = socialIcon;
