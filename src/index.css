@@ -53,7 +53,7 @@ code {
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-} 
+}
 
 .modal-container {
   display: none;
@@ -264,7 +264,7 @@ code {
   letter-spacing: 0.1rem;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .sidebar {
     display: none;
   }
@@ -275,10 +275,12 @@ code {
 
   .modal-btn {
     position: absolute;
-    top: 2%; left: 1%;
+    top: 2%;
+    left: 1%;
     background-color: transparent;
     border: none;
     font-size: 2rem;
+    cursor: pointer;
   }
 
   .modal-overlay {
@@ -295,7 +297,7 @@ code {
 
   .modal {
     background-color: #fff;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 60vw;
@@ -305,7 +307,7 @@ code {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative; 
+    position: relative;
   }
 
   .modal-close {
@@ -339,18 +341,19 @@ code {
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .delete-list {
     width: 70%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
   .label {
     width: 60%;
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .label {
     width: 70%;
   }
