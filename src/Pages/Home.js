@@ -10,23 +10,38 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
-
-  const isMobileView = window.innerWidth <= 768;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     dispatch(fetchGlampings());
+
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
   }, [dispatch]);
 
-  if (isLoading) {
-    return <div className="spinner" />;
-  }
+  const getVisibleGlampingsCount = () => {
+    if (windowWidth <= 768) {
+      return 1;
+    } if (windowWidth <= 991) {
+      return 2;
+    }
+    return 3;
+  };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : glampingsList.length - 3));
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1
+      : glampingsList.length - getVisibleGlampingsCount()));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex < glampingsList.length - 3 ? prevIndex + 1 : 0));
+    setCurrentIndex((prevIndex) => (prevIndex < glampingsList.length
+       - getVisibleGlampingsCount() ? prevIndex + 1 : 0));
   };
 
   const handlePrevMobile = () => {
@@ -58,10 +73,14 @@ const Home = () => {
     }
   };
 
-  const visibleGlampings = isMobileView ? glampingsList.slice(currentIndex, currentIndex + 1)
-    : glampingsList.slice(currentIndex, currentIndex + 3);
+  const visibleGlampings = glampingsList.slice(currentIndex, currentIndex
+     + getVisibleGlampingsCount());
+  const showNavigationButtons = visibleGlampings.length < glampingsList.length
+      && getVisibleGlampingsCount() !== 1;
 
-  const showNavigationButtons = !isMobileView || visibleGlampings.length >= 3;
+  if (isLoading) {
+    return <div className="spinner" />;
+  }
 
   return (
     <div className="glamping-list">
@@ -94,16 +113,12 @@ const Home = () => {
       </div>
       {showNavigationButtons && (
         <div className="carousel-navigation">
-          {!isMobileView && (
-            <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
-              &#8249;
-            </button>
-          )}
-          {!isMobileView && (
-            <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
-              &#8250;
-            </button>
-          )}
+          <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
+            &#8249;
+          </button>
+          <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
+            &#8250;
+          </button>
         </div>
       )}
     </div>
