@@ -11,6 +11,7 @@ const Home = () => {
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobileView = window.innerWidth <= 768;
 
   useEffect(() => {
     dispatch(fetchGlampings());
@@ -73,10 +74,20 @@ const Home = () => {
     }
   };
 
-  const visibleGlampings = glampingsList.slice(currentIndex, currentIndex
-     + getVisibleGlampingsCount());
-  const showNavigationButtons = visibleGlampings.length < glampingsList.length
-      && getVisibleGlampingsCount() !== 1;
+  const visibleGlampings = (() => {
+    if (glampingsList.length <= getVisibleGlampingsCount()) {
+      return glampingsList;
+    }
+
+    const endIndex = currentIndex + getVisibleGlampingsCount();
+    const overflow = endIndex - glampingsList.length;
+
+    if (overflow <= 0) {
+      return glampingsList.slice(currentIndex, endIndex);
+    }
+
+    return [...glampingsList.slice(currentIndex), ...glampingsList.slice(0, overflow)];
+  })();
 
   if (isLoading) {
     return <div className="spinner" />;
@@ -111,14 +122,18 @@ const Home = () => {
           </div>
         ))}
       </div>
-      {showNavigationButtons && (
+      {glampingsList.length > getVisibleGlampingsCount() && (
         <div className="carousel-navigation">
-          <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
-            &#8249;
-          </button>
-          <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
-            &#8250;
-          </button>
+          {!isMobileView && (
+            <button aria-label="Previous" className="arrow arrow-left" type="button" onClick={handlePrev}>
+              &#8249;
+            </button>
+          )}
+          {!isMobileView && (
+            <button aria-label="Next" className="arrow arrow-right" type="button" onClick={handleNext}>
+              &#8250;
+            </button>
+          )}
         </div>
       )}
     </div>
