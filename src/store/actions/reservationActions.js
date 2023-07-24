@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const fetchReservations = (username) => async (dispatch) => {
   try {
+    dispatch({ type: 'FETCH_RESERVATIONS_REQUEST' });
     const response = await axios.get('http://localhost:3000/reservations/list_reservation');
     const filteredReservations = response.data.filter(
       (reservation) => reservation[3] === username,
