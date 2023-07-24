@@ -256,8 +256,8 @@ code {
   color: #fff;
   font-size: 1rem;
   border-radius: 0.6rem;
-  margin-bottom: 2rem;
   cursor: pointer;
+  margin: 10px;
 }
 
 .logout-button:hover {

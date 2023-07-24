@@ -55,7 +55,7 @@
 .reserve-button {
   border: 1px solid #fff;
   padding: 1rem;
-  width: 14%;
+  width: 20%;
   background-color: #9acd32;
   color: #fff;
   font-size: 1.1rem;
@@ -66,4 +66,37 @@
 
 .reserve-button:hover {
   letter-spacing: 0.1rem;
+}
+
+@media (max-width: 600px) {
+  .glamping-details {
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 25px;
+  }
+
+  .glamping-details-container {
+    margin: 0;
+  }
+
+  .glamping-name-details {
+    display: none;
+  }
+
+  .glamping-details-table {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .reserve-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .glamping-name-details-mobile {
+    display: none;
+  }
 }

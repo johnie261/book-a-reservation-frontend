@@ -20,23 +20,13 @@ const GlampingDetails = () => {
 
   return (
     <div className="glamping-details">
+      <h1 className="glamping-name-details-mobile">{glampingDetails.name}</h1>
       <div className="glamping-image-container">
         <img src={glampingDetails.image} alt={glampingDetails.name} className="glamping-image-details" />
         <p>{glampingDetails.description}</p>
       </div>
       <div className="glamping-details-container">
         <h1 className="glamping-name-details">{glampingDetails.name}</h1>
-        <p>{glampingDetails.glamping_type}</p>
-        <p>
-          Daily Rate:
-          {' '}
-          {glampingDetails.daily_rate}
-        </p>
-        <p>
-          Location:
-          {' '}
-          {glampingDetails.location}
-        </p>
         <table className="glamping-details-table">
           <tbody>
             <tr>

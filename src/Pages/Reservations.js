@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchReservations from '../store/actions/reservationActions';
 import LoginReservation from '../Components/LoginReservation';
+import '../assets/Reservations.css';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -29,29 +30,44 @@ const Reservations = () => {
   }
 
   return (
-    <div>
-      <h2>
-        Reservations for
-        {' '}
-        {username}
-      </h2>
-      <ul>
-        {reservations.map((reservation) => (
-          <li key={reservation[0]}>
-            Reservation Date:
-            {' '}
-            {reservation[0]}
-            , Due Date:
-            {' '}
-            {reservation[1]}
-            , Service Fee: $
-            {reservation[2]}
-            , Glamping ID:
-            {' '}
-            {reservation[4]}
-          </li>
-        ))}
-      </ul>
+    <div className="reservation-container">
+      <div className="reservation-list">
+        <h2 className="reservation-title">
+          RESERVATIONS FOR
+          {' '}
+          {username.toUpperCase()}
+        </h2>
+        <div className="underline" />
+        <div className="reservation-cards">
+          {reservations.map((reservation) => (
+            <div key={reservation[0]} className="reservation-card">
+              <table className="reservation-table">
+                <tbody>
+                  <tr>
+                    <td>Glamping Name:</td>
+                    <td>{reservation.glampingName}</td>
+                  </tr>
+                  <tr>
+                    <td>Glamping City:</td>
+                    <td>{reservation.glampingCity}</td>
+                  </tr>
+                  <tr>
+                    <td>Reservation Date:</td>
+                    <td>{reservation[0]}</td>
+                  </tr>
+                  <tr>
+                    <td>Service Fee:</td>
+                    <td>
+                      $
+                      {reservation[2]}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
