@@ -30,10 +30,6 @@ const Reservations = () => {
     return <div className="spinner" />;
   }
 
-  if (reservations.length === 0) {
-    return <h2>You dont have any reservations yet.</h2>;
-  }
-
   return (
     <div className="reservation-container">
       <div className="reservation-list">
@@ -43,35 +39,39 @@ const Reservations = () => {
           {username.toUpperCase()}
         </h2>
         <div className="underline" />
-        <div className="reservation-cards">
-          {reservations.map((reservation) => (
-            <div key={reservation[0]} className="reservation-card">
-              <table className="reservation-table">
-                <tbody>
-                  <tr>
-                    <td>Glamping Name:</td>
-                    <td>{reservation.glampingName}</td>
-                  </tr>
-                  <tr>
-                    <td>Glamping City:</td>
-                    <td>{reservation.glampingCity}</td>
-                  </tr>
-                  <tr>
-                    <td>Reservation Date:</td>
-                    <td>{reservation[0]}</td>
-                  </tr>
-                  <tr>
-                    <td>Service Fee:</td>
-                    <td>
-                      $
-                      {reservation[2]}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          ))}
-        </div>
+        {reservations.length === 0 ? (
+          <h2 className="no-reservations-message">You dont have any reservations yet.</h2>
+        ) : (
+          <div className="reservation-cards">
+            {reservations.map((reservation) => (
+              <div key={reservation[0]} className="reservation-card">
+                <table className="reservation-table">
+                  <tbody>
+                    <tr>
+                      <td>Glamping Name:</td>
+                      <td>{reservation.glampingName}</td>
+                    </tr>
+                    <tr>
+                      <td>Glamping City:</td>
+                      <td>{reservation.glampingCity}</td>
+                    </tr>
+                    <tr>
+                      <td>Reservation Date:</td>
+                      <td>{reservation[0]}</td>
+                    </tr>
+                    <tr>
+                      <td>Service Fee:</td>
+                      <td>
+                        $
+                        {reservation[2]}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
