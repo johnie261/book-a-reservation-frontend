@@ -10,6 +10,7 @@ const Reservations = () => {
   const username = useSelector((state) => state.user.username);
   const reservations = useSelector((state) => state.reservations.reservations);
   const navigate = useNavigate();
+  const isLoading = useSelector((state) => state.reservations.isLoading);
 
   useEffect(() => {
     if (username !== 'guest') {
@@ -23,6 +24,10 @@ const Reservations = () => {
         <LoginReservation />
       </div>
     );
+  }
+
+  if (isLoading) {
+    return <div className="spinner" />;
   }
 
   if (reservations.length === 0) {
