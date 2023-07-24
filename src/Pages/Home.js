@@ -28,7 +28,7 @@ const Home = () => {
   const getVisibleGlampingsCount = () => {
     if (windowWidth <= 768) {
       return 1;
-    } if (windowWidth <= 991) {
+    } if (windowWidth <= 1280) {
       return 2;
     }
     return 3;
