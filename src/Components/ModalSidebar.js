@@ -11,12 +11,10 @@ const ModalSidebar = () => {
 
   const handleOpenModal = () => {
     setIsOpen(true);
-    console.log('john');
   };
 
   const handleCloseModel = () => {
     setIsOpen(false);
-    console.log('johnie');
   };
 
   const handleLogout = () => {
