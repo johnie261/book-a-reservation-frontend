@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createReservation, handleChange } from '../Features/reservation/reservationSlice';
 import LoginReservation from '../Components/LoginReservation';
+import '../assets/Reserve.css';
 
 const Reserve = () => {
   const [formattedReservationDate, setFormattedReservationDate] = useState('');
@@ -59,22 +60,24 @@ const Reserve = () => {
   }
 
   return (
-    <div className="form-container">
-      <h2 className="form-name">RESERVE A GLAMPING</h2>
+    <div className="reserve-container">
+      <div className='reserve-box'>
+      <h2 className="reserve-name">CREATE NEW RESERVATION</h2>
       <div className="underline" />
-      <form className="item-form" onSubmit={handleSubmitForm}>
-        <label htmlFor="username" className="label">
+      <form onSubmit={handleSubmitForm}>
+        <div className="reserve-item">
+        <label htmlFor="username" className="reserve-label">
           Username:
-          <input type="text" id="username" name="username" value={username} readOnly className="form-input" />
+          <input type="text" id="username" name="username" value={username} readOnly className="reserve-input" />
         </label>
-        <label htmlFor="glamping" className="label">
+        <label htmlFor="glamping" className="reserve-label">
           Glamping:
           <select
             id="glamping"
             name="selectedGlampingId"
             value={selectedGlampingId}
             onChange={handleInput}
-            className="form-input"
+            className="reserve-input select"
           >
             <option value="">Select a Glamping</option>
             {glampingsList.map((glamping) => (
@@ -84,7 +87,7 @@ const Reserve = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="reservationDate" className="label">
+        <label htmlFor="reservationDate" className="reserve-label">
           Reservation Date:
           <input
             type="date"
@@ -95,10 +98,10 @@ const Reserve = () => {
               setFormattedReservationDate(e.target.value.split('-').reverse().join('-'));
               handleInput(e);
             }}
-            className="form-input"
+            className="reserve-input"
           />
         </label>
-        <label htmlFor="city" className="label">
+        <label htmlFor="city" className="reserve-label">
           City:
           <input
             type="text"
@@ -106,13 +109,18 @@ const Reserve = () => {
             name="city"
             value={city}
             onChange={handleInput}
-            className="form-input"
+            className="reserve-input"
           />
         </label>
-        <button type="submit" className="button">
-          {isLoading ? 'Loading..' : 'Reserve'}
-        </button>
+        </div>
+        <div className="btn-container">
+          <button type="submit" className="reserve-btn">
+            {isLoading ? 'Loading..' : 'Create a Reservation'}
+          </button>
+        </div>
       </form>
+      
+      </div>
     </div>
   );
 };
