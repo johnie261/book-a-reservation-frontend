@@ -25,34 +25,33 @@ const GlampingDetails = () => {
 
   return (
     <div className="glamping-details">
-      <div className="previous-button-container">
-        <button aria-label="Previous" className="arrow arrow-left previous-button" type="button" onClick={handleGoBack}>
-          &#8249;
-        </button>
-      </div>
       <h1 className="glamping-name-details-mobile">{glampingDetails.name}</h1>
-      <div className="glamping-image-container">
-        <img src={glampingDetails.image} alt={glampingDetails.name} className="glamping-image-details" />
+      <div className="glamping-image-table-container">
+        <div className="glamping-image-container">
+          <img src={glampingDetails.image} alt={glampingDetails.name} className="glamping-image-details" />
+        </div>
+        <div className="glamping-details-container">
+          <h1 className="glamping-name-details">{glampingDetails.name}</h1>
+          <table className="glamping-details-table">
+            <tbody>
+              <tr>
+                <th>Type</th>
+                <td>{glampingDetails.glamping_type}</td>
+              </tr>
+              <tr>
+                <th>Daily Rate</th>
+                <td>{glampingDetails.daily_rate}</td>
+              </tr>
+              <tr>
+                <th>Location</th>
+                <td>{glampingDetails.location}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="glamping-details-container">
-        <h1 className="glamping-name-details">{glampingDetails.name}</h1>
-        <table className="glamping-details-table">
-          <tbody>
-            <tr>
-              <th>Type</th>
-              <td>{glampingDetails.glamping_type}</td>
-            </tr>
-            <tr>
-              <th>Daily Rate</th>
-              <td>{glampingDetails.daily_rate}</td>
-            </tr>
-            <tr>
-              <th>Location</th>
-              <td>{glampingDetails.location}</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>{glampingDetails.description}</p>
+      <p className="glamping-description">{glampingDetails.description}</p>
+      <div className="button-container">
         {username !== 'guest' && (
           <Link
             to={{
@@ -63,6 +62,11 @@ const GlampingDetails = () => {
             <button type="button" className="reserve-button">Reserve</button>
           </Link>
         )}
+      </div>
+      <div className="previous-button-container">
+        <button aria-label="Previous" className="arrow arrow-left previous-button" type="button" onClick={handleGoBack}>
+          &#8249;
+        </button>
       </div>
     </div>
   );
