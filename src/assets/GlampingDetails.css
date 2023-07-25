@@ -1,25 +1,26 @@
 .glamping-details {
   display: flex;
   gap: 20px;
-  padding: 40px;
+  margin-right: 40px;
   justify-content: center;
   margin-top: 120px;
+  min-height: 55vh;
 }
 
 .glamping-image-container {
   flex: 1;
+  display: flex;
 }
 
 .glamping-image-details {
-  width: 100%;
-  max-height: 400px;
+  width: 500px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
 .glamping-details-container {
   flex: 1;
-  margin-top: 20px;
 }
 
 .glamping-name-details {
@@ -60,12 +61,32 @@
   color: #fff;
   font-size: 1.1rem;
   border-radius: 0.6rem;
-  margin-top: 2rem;
+  margin-top: 6rem;
   cursor: pointer;
 }
 
 .reserve-button:hover {
   letter-spacing: 0.1rem;
+}
+
+.previous-button-container {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+.previous-button {
+  background-color: #9acd32;
+  color: #fff;
+  border: none;
+  font-size: 35px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+  position: relative;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 @media (max-width: 600px) {
