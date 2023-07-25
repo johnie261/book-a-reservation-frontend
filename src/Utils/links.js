@@ -1,27 +1,27 @@
 const links = [
   {
-    id: 1,
+    id: 2,
     text: 'GAMPLINGS',
     path: '/',
   },
   {
-    id: 2,
-    text: 'RESERVE',
+    id: 3,
+    text: 'RESERVE A GLAMPING',
     path: 'reserve',
   },
   {
-    id: 2,
-    text: 'MY RESERVATION',
+    id: 4,
+    text: 'MY RESERVATIONS',
     path: 'reservations',
   },
   {
-    id: 3,
-    text: 'ADD ITEM',
+    id: 5,
+    text: 'ADD GLAMPING',
     path: 'add-item',
   },
   {
-    id: 4,
-    text: 'DELETE ITEM',
+    id: 6,
+    text: 'DELETE GLAMPING',
     path: 'delete-item',
   },
 ];
