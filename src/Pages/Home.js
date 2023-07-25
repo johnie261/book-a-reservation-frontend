@@ -103,13 +103,13 @@ const Home = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {visibleGlampings.map((glamping) => (
-          <div className="glamping-item" key={glamping[0]}>
-            <Link to={`/glamping/${glamping[0]}`}>
+        {visibleGlampings.map(([id, name, type, imageSrc]) => (
+          <div className="glamping-item" key={id}>
+            <Link to={`/glamping/${id}`}>
               {' '}
               <img
-                src={glamping[3]}
-                alt={glamping[1]}
+                src={imageSrc}
+                alt={name}
                 className="glamping-image"
                 onError={(e) => {
                   e.target.onerror = null;
@@ -117,8 +117,8 @@ const Home = () => {
                 }}
               />
             </Link>
-            <p className="glamping-name">{glamping[1]}</p>
-            <p className="glamping-type">{glamping[2]}</p>
+            <p className="glamping-name">{name}</p>
+            <p className="glamping-type">{type}</p>
           </div>
         ))}
       </div>
