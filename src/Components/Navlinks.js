@@ -13,7 +13,7 @@ const Navlinks = ({ onClick }) => (
           onClick={onClick}
           className="nav-link"
         >
-          <h4 className='text'>{text}</h4>
+          <h4 className="text">{text}</h4>
         </NavLink>
       );
     })}

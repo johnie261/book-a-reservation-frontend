@@ -107,7 +107,6 @@ code {
   height: 2rem;
   text-decoration: none;
   padding-left: 2rem;
-  
 }
 
 .nav-link:hover {
@@ -341,10 +340,10 @@ code {
   .nav-links {
     margin-left: 0;
     margin-right: 0;
-  } 
+  }
 
   .nav-link {
-    height: 3rem;  
+    height: 3rem;
   }
 
   .pagination {

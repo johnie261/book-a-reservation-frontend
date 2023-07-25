@@ -61,65 +61,65 @@ const Reserve = () => {
 
   return (
     <div className="reserve-container">
-      <div className='reserve-box'>
-      <h2 className="reserve-name">CREATE NEW RESERVATION</h2>
-      <div className="underline" />
-      <form onSubmit={handleSubmitForm}>
-        <div className="reserve-item">
-        <label htmlFor="username" className="reserve-label">
-          Username:
-          <input type="text" id="username" name="username" value={username} readOnly className="reserve-input" />
-        </label>
-        <label htmlFor="glamping" className="reserve-label">
-          Glamping:
-          <select
-            id="glamping"
-            name="selectedGlampingId"
-            value={selectedGlampingId}
-            onChange={handleInput}
-            className="reserve-input select"
-          >
-            <option value="">Select a Glamping</option>
-            {glampingsList.map((glamping) => (
-              <option key={glamping[0]} value={glamping[0]}>
-                {glamping[1]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="reservationDate" className="reserve-label">
-          Reservation Date:
-          <input
-            type="date"
-            id="reservationDate"
-            name="reservationDate"
-            value={reservationDate}
-            onChange={(e) => {
-              setFormattedReservationDate(e.target.value.split('-').reverse().join('-'));
-              handleInput(e);
-            }}
-            className="reserve-input"
-          />
-        </label>
-        <label htmlFor="city" className="reserve-label">
-          City:
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={city}
-            onChange={handleInput}
-            className="reserve-input"
-          />
-        </label>
-        </div>
-        <div className="btn-container">
-          <button type="submit" className="reserve-btn">
-            {isLoading ? 'Loading..' : 'Create a Reservation'}
-          </button>
-        </div>
-      </form>
-      
+      <div className="reserve-box">
+        <h2 className="reserve-name">CREATE NEW RESERVATION</h2>
+        <div className="underline" />
+        <form onSubmit={handleSubmitForm}>
+          <div className="reserve-item">
+            <label htmlFor="username" className="reserve-label">
+              Username:
+              <input type="text" id="username" name="username" value={username} readOnly className="reserve-input" />
+            </label>
+            <label htmlFor="glamping" className="reserve-label">
+              Glamping:
+              <select
+                id="glamping"
+                name="selectedGlampingId"
+                value={selectedGlampingId}
+                onChange={handleInput}
+                className="reserve-input select"
+              >
+                <option value="">Select a Glamping</option>
+                {glampingsList.map((glamping) => (
+                  <option key={glamping[0]} value={glamping[0]}>
+                    {glamping[1]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label htmlFor="reservationDate" className="reserve-label">
+              Reservation Date:
+              <input
+                type="date"
+                id="reservationDate"
+                name="reservationDate"
+                value={reservationDate}
+                onChange={(e) => {
+                  setFormattedReservationDate(e.target.value.split('-').reverse().join('-'));
+                  handleInput(e);
+                }}
+                className="reserve-input"
+              />
+            </label>
+            <label htmlFor="city" className="reserve-label">
+              City:
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={city}
+                onChange={handleInput}
+                className="reserve-input"
+              />
+            </label>
+          </div>
+          <div className="btn-container">
+            <button type="submit" className="reserve-btn">
+              {isLoading ? 'Loading..' : 'Create a Reservation'}
+            </button>
+          </div>
+        </form>
+
       </div>
     </div>
   );

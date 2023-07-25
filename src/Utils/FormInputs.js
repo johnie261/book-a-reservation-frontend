@@ -12,7 +12,7 @@ const inputFields = [
     placeholder: 'Enter location',
   },
   {
-    name: "glamping_type",
+    name: 'glamping_type',
     label: 'Glamping Type:',
     type: 'text',
     placeholder: 'Enter type of glamping',
