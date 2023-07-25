@@ -1,0 +1,96 @@
+.reserve-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(/src/Utils/bg2.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.reserve-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(154, 205, 50, 0.8);
+}
+
+.reserve-box {
+  z-index: 1;
+}
+
+.reserve-name {
+  color: #fff;
+  text-align: center;
+}
+
+.reserve-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.reserve-label {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: #fff;
+}
+
+.reserve-input{
+  outline: 1px solid #fff;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  background-color: #9acd32;
+  color: #fff;
+  padding: .9rem;
+}
+
+.reserve-input option {
+  color: #111;
+  background-color: #fff;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.3rem;
+}
+
+.reserve-btn {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: #9acd32;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .reserve-item {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .reserve-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reserve-input {
+    width: 90%;
+  }
+
+  .select {
+    width: 100%;
+  }
+}
