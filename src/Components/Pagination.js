@@ -36,7 +36,7 @@ const Pagination = () => {
     return <div className="spinner" />;
   }
 
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const totalPages = Math.ceil(renderedList.length / itemsPerPage);
 
   const handlePageChange = ({ selected }) => {
