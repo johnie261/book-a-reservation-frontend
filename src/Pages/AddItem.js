@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { clearValues, createGlamping, handleChange } from '../Features/gampling/gamplingSlice';
+import inputFields from '../Utils/FormInputs';
 
 const AddItem = () => {
   const {
@@ -41,82 +42,45 @@ const AddItem = () => {
     dispatch(clearValues());
   };
 
+  const getFieldValue = (fieldName) => {
+    if (fieldName === 'name') return name;
+    if (fieldName === 'location') return location;
+    if (fieldName === 'glamping_type') return glampingType;
+    if (fieldName === 'image') return image;
+    if (fieldName === 'daily_rate') return dailyRate;
+    return '';
+  };
+
   return (
     <div className="form-container">
       <h2 className="form-name">ADD A NEW GLAMPING</h2>
       <div className="underline" />
       <form className="item-form">
-        <label htmlFor="name" className="label">
-          Name:
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={name}
-            onChange={handleInput}
-            className="form-input"
-            placeholder="Enter name of the glamping"
-          />
-        </label>
-        <label htmlFor="location" className="label">
-          Location:
-          <input
-            id="location"
-            name="location"
-            type="text"
-            value={location}
-            onChange={handleInput}
-            className="form-input"
-            placeholder="Enter location"
-          />
-        </label>
-        <label htmlFor="glamping_type" className="label">
-          Glamping Type:
-          <input
-            id="glamping_type"
-            name="glamping_type"
-            type="text"
-            value={glampingType}
-            onChange={handleInput}
-            className="form-input"
-            placeholder="Enter type of glamping"
-          />
-        </label>
-        <label htmlFor="description" className="label">
-          Description:
-          <textarea
-            id="description"
-            name="description"
-            value={description}
-            onChange={handleInput}
-            className="form-input"
-            placeholder="Add description"
-          />
-        </label>
-        <label htmlFor="image" className="label">
-          Image link:
-          <input
-            id="image"
-            name="image"
-            value={image}
-            onChange={handleInput}
-            type="text"
-            className="form-input"
-            placeholder="Add a link to an image"
-          />
-        </label>
-        <label htmlFor="daily_rate" className="label">
-          Daily Rate:
-          <input
-            id="daily_rate"
-            name="daily_rate"
-            type="number"
-            value={dailyRate}
-            onChange={handleInput}
-            className="form-input"
-            placeholder="Add rate"
-          />
-        </label>
+        {inputFields.map((field) => (
+          <label key={field.name} htmlFor={field.name} className="label">
+            {field.label}
+            {field.type === 'textarea' ? (
+              <textarea
+                id={field.name}
+                name={field.name}
+                value={field.name === 'description' ? description : ''}
+                onChange={handleInput}
+                className="form-input"
+                placeholder={field.placeholder}
+              />
+            ) : (
+              <input
+                id={field.name}
+                name={field.name}
+                type={field.type}
+                value={getFieldValue(field.name)}
+                onChange={handleInput}
+                className="form-input"
+                placeholder={field.placeholder}
+              />
+            )}
+          </label>
+        ))}
         <button
           type="button"
           className="button"
