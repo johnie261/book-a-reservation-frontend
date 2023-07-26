@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createReservation, handleChange } from '../Features/reservation/reservationSlice';
 import LoginReservation from '../Components/LoginReservation';
+import '../assets/Reserve.css';
 
 const Reserve = () => {
   const [formattedReservationDate, setFormattedReservationDate] = useState('');
@@ -59,60 +60,67 @@ const Reserve = () => {
   }
 
   return (
-    <div className="form-container">
-      <h2 className="form-name">RESERVE A GLAMPING</h2>
-      <div className="underline" />
-      <form className="item-form" onSubmit={handleSubmitForm}>
-        <label htmlFor="username" className="label">
-          Username:
-          <input type="text" id="username" name="username" value={username} readOnly className="form-input" />
-        </label>
-        <label htmlFor="glamping" className="label">
-          Glamping:
-          <select
-            id="glamping"
-            name="selectedGlampingId"
-            value={selectedGlampingId}
-            onChange={handleInput}
-            className="form-input"
-          >
-            <option value="">Select a Glamping</option>
-            {glampingsList.map((glamping) => (
-              <option key={glamping[0]} value={glamping[0]}>
-                {glamping[1]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="reservationDate" className="label">
-          Reservation Date:
-          <input
-            type="date"
-            id="reservationDate"
-            name="reservationDate"
-            value={reservationDate}
-            onChange={(e) => {
-              setFormattedReservationDate(e.target.value.split('-').reverse().join('-'));
-              handleInput(e);
-            }}
-            className="form-input"
-          />
-        </label>
-        <label htmlFor="city" className="label">
-          City:
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={city}
-            onChange={handleInput}
-            className="form-input"
-          />
-        </label>
-        <button type="submit" className="button">
-          {isLoading ? 'Loading..' : 'Reserve'}
-        </button>
-      </form>
+    <div className="reserve-container">
+      <div className="reserve-box">
+        <h2 className="reserve-name">CREATE NEW RESERVATION</h2>
+        <div className="underline" />
+        <form onSubmit={handleSubmitForm}>
+          <div className="reserve-item">
+            <label htmlFor="username" className="reserve-label">
+              Username:
+              <input type="text" id="username" name="username" value={username} readOnly className="reserve-input" />
+            </label>
+            <label htmlFor="glamping" className="reserve-label">
+              Glamping:
+              <select
+                id="glamping"
+                name="selectedGlampingId"
+                value={selectedGlampingId}
+                onChange={handleInput}
+                className="reserve-input select"
+              >
+                <option value="">Select a Glamping</option>
+                {glampingsList.map((glamping) => (
+                  <option key={glamping[0]} value={glamping[0]}>
+                    {glamping[1]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label htmlFor="reservationDate" className="reserve-label">
+              Reservation Date:
+              <input
+                type="date"
+                id="reservationDate"
+                name="reservationDate"
+                value={reservationDate}
+                onChange={(e) => {
+                  setFormattedReservationDate(e.target.value.split('-').reverse().join('-'));
+                  handleInput(e);
+                }}
+                className="reserve-input"
+              />
+            </label>
+            <label htmlFor="city" className="reserve-label">
+              City:
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={city}
+                onChange={handleInput}
+                className="reserve-input"
+              />
+            </label>
+          </div>
+          <div className="btn-container">
+            <button type="submit" className="reserve-btn">
+              {isLoading ? 'Loading..' : 'Create a Reservation'}
+            </button>
+          </div>
+        </form>
+
+      </div>
     </div>
   );
 };

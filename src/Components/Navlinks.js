@@ -24,7 +24,7 @@ const Navlinks = ({ onClick }) => {
         const { id, text, path } = link;
         return (
           <NavLink to={path} key={id} onClick={onClick} className="nav-link">
-            <h4>{text}</h4>
+            <h4 className="text">{text}</h4>
           </NavLink>
         );
       })}
