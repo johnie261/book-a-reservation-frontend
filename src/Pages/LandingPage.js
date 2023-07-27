@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login, logout } from '../store/actions/userActions';
+import '../assets/LandingPage.css';
 
-const LoginPage = () => {
+const LandingPage = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,7 +15,6 @@ const LoginPage = () => {
       try {
         await dispatch(login(username));
         setUsername('');
-        navigate('/');
       } catch (error) {
         throw new Error(error.message);
       }
@@ -50,4 +50,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LandingPage;

@@ -10,6 +10,7 @@ import Reserve from './Pages/Reserve';
 import AddItem from './Pages/AddItem';
 import DeleteItem from './Pages/DeleteItem';
 import GlampingDetails from './Pages/GlampingDetails';
+import LandingPage from './Pages/LandingPage';
 import LoginPage from './Pages/LoginPage';
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={username ? <Layout /> : <LoginPage />}
+          element={username ? <Layout /> : <LandingPage />}
         >
           <Route index element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/add-item" element={<AddItem />} />
