@@ -1,70 +1,211 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
 
-## Available Scripts
+# 📗 Table of Contents
 
-In the project directory, you can run:
+- [📖 About the Project](#about-project)
+  - [Kanban Board](#kanban-board)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-### `npm start`
+<!-- PROJECT DESCRIPTION -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📖 Book a Reservation - Backend <a name="about-project"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Book a Reservation** is a full-stack web application that lets the user:
 
-### `npm test`
+- See a list of glampings
+- See the details of each glamping
+- Make a reservation to the glamping
+- Add a glamping Item
+- Delete a glamping Item
+- List all reservations for a given glamping
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is the frontend side of the project. You can go to the backend side following this link:
 
-### `npm run build`
+https://github.com/jaimevillegas/book-a-reservation-backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In this project, we had a team of 4 members.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Kanban Board <a name="kanban-board"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is the link to the kanban board:
+https://github.com/users/jaimevillegas/projects/1
 
-### `npm run eject`
+This is the screenshot of the initial state of our Kanban board:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://github.com/jaimevillegas/book-a-reservation-backend/assets/5252636/4691e51f-5e26-4178-beb8-b831f85b2cfe)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠 Built With <a name="built-with"></a>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Tech Stack <a name="tech-stack"></a>
 
-## Learn More
+<details>
+  <summary>Client</summary>
+  <ul>
+   <li>HTML</li>
+   <li>CSS</li>
+   <li>React</li>
+   <li>Redux</li>
+  </ul>
+</details>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li>Ruby on Rails</li>
+  </ul>
+</details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<details>
+<summary>Database</summary>
+  <ul>
+    <li>PostgreSQL</li>
+  </ul>
+</details>
 
-### Code Splitting
+<!-- Features -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Key Features <a name="key-features"></a>
 
-### Analyzing the Bundle Size
+- See a list of glampings
+- See the details of each glamping
+- Make a reservation to the glamping
+- Add a glamping Item
+- Delete a glamping Item
+- List all reservations for a given glamping
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right"><a href="#readme-top">👆</a></p>
 
-### Making a Progressive Web App
+<!-- LIVE DEMO -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🚀 Live Demo <a name="live-demo"></a>
 
-### Advanced Configuration
+Currently, we don't have a live version of the project. We will let you know ASAP when it is available!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p align="right"><a href="#readme-top">👆</a></p>
 
-### Deployment
+<!-- Getting Started -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 💻 Getting Started <a name="getting-started"></a>
 
-### `npm run build` fails to minify
+To run the project locally, follow these steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Prerequisites
+
+In order to run this project you need to:
+
+- Install [Git](https://git-scm.com/)
+- Install [Node](https://nodejs.org/en/download)
+- Install a code editor, We suggest [VsCode](https://code.visualstudio.com/)
+
+### Setup
+
+Clone the repo into your local machine:
+
+```bash
+git clone https://github.com/jaimevillegas/book-a-reservation-frontend
+```
+
+Install the dependencies:
+```bash
+npm install
+```
+
+### Usage
+
+To start you can open your terminal and in the folder write
+```bash
+npm start
+```
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Osvaldo Barrios**
+- Twitter : [@OsvaldoBarrio20](https://twitter.com/OsvaldoBarrio20)
+- GitHub :  [@OsvaldoBC](https://github.com/OsvaldoBC)
+- LinkedIn: [osvaldo-barrios-data-science](https://linkedin.com/in/osvaldo-barrios-data-science)
+
+👤 **Johnie**
+
+- GitHub: [@githubhandle](https://github.com/johnie261)
+- Twitter: [@twitterhandle](https://twitter.com/njorogejohnie)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muturijohn/)
+
+👤 **Néstor Oro**
+
+- GitHub: [@blueberry1312](https://github.com/blueberry1312)
+- Twitter: [@nestorsitooo](https://twitter.com/nestorsitooo)
+- LinkedIn: [Nestor Oro](https://www.linkedin.com/in/nestor-oro/)
+
+👤 **Jaime Villegas**
+- GitHub: [@githubhandle](https://github.com/jaimevillegas)
+- Twitter: [@jaimevillegazz](https://twitter.com/JaimeVillegazz)
+- LinkedIn: [Villegas0296](https://www.linkedin.com/in/villegas0296/)
+- Medium: [@jaimevillegas296](https://medium.com/@jaimevillegas296)
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- Implement authentication
+- Implement authorization
+- Deploy
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- Contributing -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- Show your support -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project leave a start for it.
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+We would like to thank Microverse for helping us in the journey to become a Fullstack developer 🌹
+
+Special thanks to Murat Korkmaz, on providing an awesome design! https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE.md) licensed.
+
+<p align="right"><a href="#readme-top">👆</a></p>
