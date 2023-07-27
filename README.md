@@ -23,7 +23,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Book a Reservation - Backend <a name="about-project"></a>
+# 📖 Book a Reservation - Frontend <a name="about-project"></a>
 
 **Book a Reservation** is a full-stack web application that lets the user:
 
@@ -47,8 +47,7 @@ https://github.com/users/jaimevillegas/projects/1
 
 This is the screenshot of the initial state of our Kanban board:
 
-![image](https://github.com/jaimevillegas/book-a-reservation-backend/assets/5252636/4691e51f-5e26-4178-beb8-b831f85b2cfe)
-
+![image](https://github.com/jaimevillegas/book-a-reservation-frontend/assets/62003190/e066482d-8f87-4c9d-917b-5363e317b88b)
 
 ## 🛠 Built With <a name="built-with"></a>
 
