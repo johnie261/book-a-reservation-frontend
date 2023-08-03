@@ -17,7 +17,6 @@ const LoginReservation = () => {
   };
 
   const handleGuestLogin = () => {
-    ax;
     dispatch(logout());
     setUsername('');
     navigate('/');
