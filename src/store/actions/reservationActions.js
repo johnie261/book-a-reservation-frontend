@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const fetchReservations = (username) => async (dispatch) => {
   try {
@@ -23,7 +24,7 @@ const fetchReservations = (username) => async (dispatch) => {
 
     dispatch({ type: 'FETCH_RESERVATIONS_SUCCESS', payload: reservationsWithGlampingDetails });
   } catch (error) {
-    console.error('Error fetching reservations:', error);
+    toast.error('Error fetching reservations:', error);
     dispatch({ type: 'FETCH_RESERVATIONS_FAILURE', payload: 'Error fetching reservations.' });
   }
 };

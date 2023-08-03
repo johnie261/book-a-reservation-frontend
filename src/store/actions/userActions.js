@@ -16,7 +16,7 @@ export const login = (username) => async (dispatch) => {
       toast.error('not successfull, user not found');
     }
   } catch (error) {
-    console.error('Error fetching users:', error);
+    toast.error('Error fetching user:', error);
     dispatch({ type: 'LOGIN_FAILURE', payload: 'Error fetching users.' });
   }
 };

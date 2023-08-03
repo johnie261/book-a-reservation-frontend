@@ -47,7 +47,6 @@ const Reserve = () => {
       }
     } catch (error) {
       toast.error('Error');
-      console.error(error);
     }
   };
 
