@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 export const login = (username) => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3000/users/list_users');
+    const response = await axios.get('https://book-a-reservation-backend.onrender.com/users/list_users');
     const users = response.data;
 
     const user = users.find((user) => user[1] === username);

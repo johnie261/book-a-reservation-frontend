@@ -13,7 +13,7 @@ export const createReservation = createAsyncThunk(
   'reservation/createReservation',
   async (reservation) => {
     try {
-      const res = await axios.post('http://localhost:3000/reservations/create', reservation);
+      const res = await axios.post('https://book-a-reservation-backend.onrender.com/reservations/create', reservation);
       return res.data;
     } catch (error) {
       throw new Error(error.message);
